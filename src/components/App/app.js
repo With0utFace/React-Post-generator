@@ -6,8 +6,8 @@ import AddPost from '../add-post';
 import "./app.css";
 
 export default class App extends Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 
 		this.state = {
 			posts: data
@@ -29,12 +29,18 @@ export default class App extends Component {
 		})
 	}
 
+	onPostAdd = (tag) => {
+		console.log(tag);
+	}
+
 	render() {
+
 		return (
 			<div className="app">
 				<Post posts={this.state.posts}
 					onPostDelete={this.onPostDelete} />
-				<AddPost />
+				<AddPost posts={this.state.posts}
+					action={this.onPostAdd} />
 			</div>
 		);
 	}
