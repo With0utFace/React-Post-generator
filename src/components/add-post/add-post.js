@@ -11,8 +11,7 @@ export default class AddPost extends Component {
 	}
 
 	generateId = () => {
-		const uniqueId = Math.random().toString().substr(2, 12);
-		return uniqueId;
+		return Math.random().toString().substr(2, 12);
 	};
 
 	addPost = () => {

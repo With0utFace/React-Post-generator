@@ -7,11 +7,7 @@ export default class PostElement extends Component {
 
 		const postElement = this.props.posts.map((post) => {
 			let tags = post.tags.map((tag, i) => {
-				return (
-					<button className="post-tag" key={i}>
-						{tag}
-					</button>
-				);
+				return <button className="post-tag" key={i}>{tag}</button>
 			});
 
 			return (

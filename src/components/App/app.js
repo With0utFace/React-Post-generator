@@ -12,56 +12,33 @@ export default class App extends Component {
 		this.state = {
 			posts: data
 		};
-	}
+	};
 
 	componentWillMount() {
 		if (window.localStorage.length > 0) {
 			for (let i = 0; i < localStorage.length; i++) {
-				let storageKey = localStorage.key(i);
-				let currentStorageItem = JSON.parse(localStorage.getItem(storageKey));
-				this.setState(({ posts }) => {
-					const localStorageArray = [
-						...posts,
-						currentStorageItem
-					];
+				let currentStorageItem = JSON.parse(localStorage.getItem(localStorage.key(i)));
 
-					return {
-						posts: localStorageArray
-					}
+				this.setState(({ posts }) => {
+					return { posts: [...posts, currentStorageItem] }
 				});
 			}
 		}
-	}
+	};
 
 	postDelete = (id) => {
 		localStorage.removeItem(id);
 		this.setState(({ posts }) => {
-			const index = posts.findIndex((idx) => idx.id === id);
-
-			const newArray = [
-				...posts.slice(0, index),
-				...posts.slice(index + 1)
-			];
-
-			return {
-				posts: newArray
-			}
+			return { posts: posts.filter(element => element.id !== id) }
 		});
-	}
+	};
 
 	postAdd = (post) => {
 		localStorage.setItem(post.id, JSON.stringify(post));
 		this.setState(({ posts }) => {
-			const newArray = [
-				...posts,
-				post
-			];
-
-			return {
-				posts: newArray
-			}
+			return { posts: [...posts, post] }
 		});
-	}
+	};
 
 	render() {
 		return (
@@ -76,5 +53,5 @@ export default class App extends Component {
 				/>
 			</div>
 		);
-	}
+	};
 }
