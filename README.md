@@ -1,1 +1,1 @@
-Simple React app
+Simple React app for generating elements like news.
