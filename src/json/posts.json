@@ -1,26 +1,39 @@
 [
-  {
-    "id": 1,
-    "title": "Стремящийся наибольший",
-    "body": "Поле направлений нейтрализует коллинеарный полином, откуда следует доказываемое равенство.",
-    "tags": ["тег", "еще тег"]
-  },
-  {
-    "id": 2,
-    "title": "Эффузивный топаз",
-    "body": "Поскольку плиты перестали сближаться, гейзер сдвигает кимберлит, в соответствии с изменениями в суммарной минерализации.",
-    "tags": ["коренной цоколь", "дифференциация", "апатит"]
-  },
-  {
-    "id": 3,
-    "title": "Звукорядный октавер",
-    "body": "Ретро монотонно диссонирует форшлаг, и здесь в качестве модуса конструктивных элементов используется ряд каких-либо единых длительностей.",
-    "tags": ["конструктивный соноропериод", "движение"]
-  },
-  {
-    "id": 4,
-    "title": "Спиральный фотон",
-    "body": "Любое возмущение затухает, если взрыв ненаблюдаемо искажает экранированный электрон, и это неудивительно, если вспомнить.",
-    "tags": ["сверхновая", "гидродинамический удар"]
-  }
+	{
+		"id": 1,
+		"title": "Template title",
+		"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+		"tags": [
+			"Tag",
+			"Another tag"
+		]
+	},
+	{
+		"id": 2,
+		"title": "Awesome title",
+		"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+		"tags": [
+			"Lorem tag",
+			"Test tag",
+			"Another test"
+		]
+	},
+	{
+		"id": 3,
+		"title": "Awesome title 2",
+		"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+		"tags": [
+			"Simple tag",
+			"Learn js"
+		]
+	},
+	{
+		"id": 4,
+		"title": "Another awesome title",
+		"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. ",
+		"tags": [
+			"Wow i'm tag",
+			"Testing tag"
+		]
+	}
 ]

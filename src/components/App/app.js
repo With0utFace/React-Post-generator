@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import data from "../../json/posts";
-import Post from "../post";
+import PostElement from "../post-element";
 import AddPost from '../add-post';
 
 import "./app.css";
@@ -14,7 +14,27 @@ export default class App extends Component {
 		};
 	}
 
-	onPostDelete = (id) => {
+	componentWillMount() {
+		if (window.localStorage.length > 0) {
+			for (let i = 0; i < localStorage.length; i++) {
+				let storageKey = localStorage.key(i);
+				let currentStorageItem = JSON.parse(localStorage.getItem(storageKey));
+				this.setState(({ posts }) => {
+					const localStorageArray = [
+						...posts,
+						currentStorageItem
+					];
+
+					return {
+						posts: localStorageArray
+					}
+				});
+			}
+		}
+	}
+
+	postDelete = (id) => {
+		localStorage.removeItem(id);
 		this.setState(({ posts }) => {
 			const index = posts.findIndex((idx) => idx.id === id);
 
@@ -26,21 +46,34 @@ export default class App extends Component {
 			return {
 				posts: newArray
 			}
-		})
+		});
 	}
 
-	onPostAdd = (tag) => {
-		console.log(tag);
+	postAdd = (post) => {
+		localStorage.setItem(post.id, JSON.stringify(post));
+		this.setState(({ posts }) => {
+			const newArray = [
+				...posts,
+				post
+			];
+
+			return {
+				posts: newArray
+			}
+		});
 	}
 
 	render() {
-
 		return (
 			<div className="app">
-				<Post posts={this.state.posts}
-					onPostDelete={this.onPostDelete} />
-				<AddPost posts={this.state.posts}
-					action={this.onPostAdd} />
+				<PostElement
+					posts={this.state.posts}
+					onPostDelete={this.postDelete}
+				/>
+				<AddPost
+					posts={this.state.posts}
+					action={this.postAdd}
+				/>
 			</div>
 		);
 	}

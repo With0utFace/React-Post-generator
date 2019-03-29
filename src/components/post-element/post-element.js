@@ -1,13 +1,11 @@
 import React, { Component } from "react";
-import './post.css';
+import './post-element.css';
 
-export default class Post extends Component {
+export default class PostElement extends Component {
 	render() {
-
 		const { onPostDelete } = this.props;
 
-		const onePost = this.props.posts.map((post) => {
-
+		const postElement = this.props.posts.map((post) => {
 			let tags = post.tags.map((tag, i) => {
 				return (
 					<button className="post-tag" key={i}>
@@ -29,15 +27,18 @@ export default class Post extends Component {
 						{tags}
 					</div>
 					<div>
-						<button className="delete-post"
-							onClick={() => onPostDelete(post.id)}>Удалить</button>
+						<button
+							className="delete-post"
+							onClick={() => onPostDelete(post.id)}>
+							Delete
+						</button>
 					</div>
 				</div>
 			);
 		});
 
 		return (
-			<div className="posts-container">{onePost}</div>
+			<div className="posts-container">{postElement}</div>
 		);
 	}
 }

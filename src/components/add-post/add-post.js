@@ -10,47 +10,53 @@ export default class AddPost extends Component {
 		this.postTags = React.createRef();
 	}
 
-	// createPost = (e) => {
-	// 	e.preventDefault();
+	generateId = () => {
+		const uniqueId = Math.random().toString().substr(2, 12);
+		return uniqueId;
+	};
 
-	// 	let postData = {
-	// 		id: this.props.posts.length + 1,
-	// 		title: this.postTitle.current.value,
-	// 		body: this.postBody.current.value,
-	// 		tags: this.postTags.current.value.split(",")
-	// 	};
-	// 	const { posts } = this.props;
-	// 	posts.push(postData);
-	// 	this.setState((state) => {
-	// 		console.log(state);
-	// 	});
-	// }
+	addPost = () => {
+		const data = {
+			id: this.generateId(),
+			title: this.postTitle.current.value,
+			body: this.postBody.current.value,
+			tags: this.postTags.current.value.split(",")
+		}
+
+		this.postTitle.current.value = '';
+		this.postBody.current.value = '';
+		this.postTags.current.value = '';
+
+		return this.props.action(data);
+	};
 
 	render() {
-
-
 		return (
 			<div className="add-post">
 				<p>Want to add new post ? do it</p>
-				<input type="text"
+				<input
+					type="text"
 					placeholder="Post title"
-					ref={this.postTitle} />
+					ref={this.postTitle}
+				/>
 
-				<input type="text"
+				<input
+					type="text"
 					placeholder="Post body"
-					ref={this.postBody} />
+					ref={this.postBody}
+				/>
 
-				<input type="text"
+				<input
+					type="text"
 					placeholder="Post tags"
-					ref={this.postTags} />
+					ref={this.postTags}
+				/>
 
-				<button type="button"
-					onClick={() => this.props.action({
-						id: this.props.posts.length + 1,
-						title: this.postTitle.current.value,
-						body: this.postBody.current.value,
-						tags: this.postTags.current.value.split(",")
-					})}>Add Post</button>
+				<button
+					type="button"
+					onClick={this.addPost}>
+					Add Post
+				</button>
 			</div>
 		);
 	}
